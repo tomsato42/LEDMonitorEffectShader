@@ -44,7 +44,7 @@ Shader "Custom/LED_Shader_URP"
             SAMPLER(sampler_MainTex);
 
             TEXTURE2D(_MaskTex);
-            SAMPLER(sampler_MaskTex); // 保持しておくだけ、今は使わない
+            SAMPLER(sampler_MaskTex);
 
             Varyings vert(Attributes IN)
             {
@@ -96,7 +96,7 @@ Shader "Custom/LED_Shader_URP"
                 if (mask_uv.x < 0.2 || 0.8 < mask_uv.x || 
                     mask_uv.y < 0.2 || 0.8 < mask_uv.y)
                 {
-                    return half4(0,0,0,1); // 端のUVは無視
+                    return half4(0,0,0,1);
                 }
 
                 float blend = 1.0 -  calc_tile_uv(IN, total_width, total_height);;
